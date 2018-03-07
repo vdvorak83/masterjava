@@ -31,6 +31,11 @@ public class MailService {
         private final String email;
         private final String result;
 
+        private MailResult(String email, String cause) {
+            this.email = email;
+            this.result = cause;
+        }
+
         private static MailResult ok(String email) {
             return new MailResult(email, OK);
         }
@@ -41,11 +46,6 @@ public class MailService {
 
         public boolean isOk() {
             return OK.equals(result);
-        }
-
-        private MailResult(String email, String cause) {
-            this.email = email;
-            this.result = cause;
         }
 
         @Override
